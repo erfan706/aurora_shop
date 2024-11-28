@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+<img src="{{ url_for('static', filename='images/' ~ product.image) }}" alt="{{ product.name }}">
+<p>قیمت: {{ product.price }} تومان</p>
+<a href="{{ url_for('add_to_cart', product_id=product.id) }}">افزودن به سبد خرید</a>
+{% endblock %}

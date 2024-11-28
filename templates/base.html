@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فروشگاه آرورا</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Aurora">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">صفحه اصلی</a></li>
+                <li><a href="{{ url_for('cart_view') }}">سبد خرید</a></li>
+                <li><a href="{{ url_for('support') }}">پشتیبانی</a></li>
+                <li><a href="{{ url_for('account') }}">حساب کاربری</a></li>
+            </ul>
+            <form action="{{ url_for('search') }}" method="post">
+                <input type="text" name="query" placeholder="جست‌وجو...">
+                <button type="submit">جست‌وجو</button>
+            </form>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>فروشگاه آرورا &copy; 2024</p>
+    </footer>
+</body>
+</html>

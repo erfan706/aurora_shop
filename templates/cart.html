@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>سبد خرید</h1>
+<ul>
+    {% for item in cart %}
+    <li>
+        {{ item.name }} - {{ item.price }} تومان
+        <a href="{{ url_for('remove_from_cart', product_id=item.id) }}">حذف</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="#">پرداخت</a>
+{% endblock %}

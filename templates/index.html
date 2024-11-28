@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>تازه‌ترین‌ها</h1>
+<div class="latest-products">
+    {% for product in latest_products %}
+    <div class="product">
+        <a href="{{ url_for('product', product_id=product.id) }}">
+            <img src="{{ url_for('static', filename='images/' ~ product.image) }}" alt="{{ product.name }}">
+        </a>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price }} تومان</p>
+        <a href="{{ url_for('add_to_cart', product_id=product.id) }}">افزودن به سبد خرید</a>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>محصولات</h1>
+<div class="products">
+    {% for product in products %}
+    <div class="product">
+        <a href="{{ url_for('product', product_id=product.id) }}">
+            <img src="{{ url_for('static', filename='images/' ~ product.image) }}" alt="{{ product.name }}">
+        </a>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price }} تومان</p>
+        <a href="{{ url_for('add_to_cart', product_id=product.id) }}">افزودن به سبد خرید</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
